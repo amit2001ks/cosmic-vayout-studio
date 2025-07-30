@@ -4,6 +4,7 @@ import FeaturedWork from "@/components/FeaturedWork";
 import ServicesHighlight from "@/components/ServicesHighlight";
 import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
+import WebhookSetup from "@/components/WebhookSetup";
 
 const Index = () => {
   return (
@@ -25,6 +26,9 @@ const Index = () => {
       
       {/* Footer */}
       <Footer />
+      
+      {/* Webhook Setup */}
+      <WebhookSetup />
     </div>
   );
 };

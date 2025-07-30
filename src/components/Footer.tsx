@@ -1,16 +1,69 @@
 import { Instagram, Mail, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
   const handleSocialClick = (url: string) => {
     window.open(url, "_blank");
   };
 
-  const handleEmailSignup = (e: React.FormEvent) => {
+  const handleEmailSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add email signup logic here
-    console.log("Email signup submitted");
+    
+    if (!email) {
+      toast({
+        title: "Error",
+        description: "Please enter your email address",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      // Send email notification via webhook
+      const webhookUrl = localStorage.getItem('vayout_webhook_url');
+      
+      if (webhookUrl) {
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          mode: "no-cors",
+          body: JSON.stringify({
+            type: "email_subscription",
+            email: email,
+            timestamp: new Date().toISOString(),
+            source: "Vayout Website Footer",
+          }),
+        });
+      }
+
+      // Show success message
+      toast({
+        title: "Success!",
+        description: "Thank you for joining our cosmic journey!",
+      });
+      
+      setEmail("");
+    } catch (error) {
+      console.error("Error submitting email:", error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -40,13 +93,16 @@ const Footer = () => {
               <Input 
                 type="email" 
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="cosmic-border bg-cosmic-surface/50 border-cosmic-violet/30 text-cosmic-text-primary placeholder:text-cosmic-text-muted focus:border-cosmic-violet"
               />
               <Button 
                 type="submit"
-                className="w-full cosmic-glow bg-cosmic-violet hover:bg-cosmic-blue text-cosmic-text-primary transition-all duration-300"
+                disabled={isLoading}
+                className="w-full cosmic-glow bg-cosmic-violet hover:bg-cosmic-blue text-cosmic-text-primary transition-all duration-300 disabled:opacity-50"
               >
-                Subscribe
+                {isLoading ? "Subscribing..." : "Subscribe"}
               </Button>
             </form>
           </div>
