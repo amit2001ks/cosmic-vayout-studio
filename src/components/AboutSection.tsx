@@ -1,13 +1,10 @@
 import cosmicBg from "@/assets/cosmic-nebula-bg.jpg";
-
 const AboutSection = () => {
-  return (
-    <section id="about" className="py-24 relative overflow-hidden">
+  return <section id="about" className="py-24 relative overflow-hidden">
       {/* Background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${cosmicBg})` }}
-      >
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${cosmicBg})`
+    }}>
         <div className="absolute inset-0 bg-cosmic-black/70"></div>
       </div>
 
@@ -21,11 +18,7 @@ const AboutSection = () => {
             </h2>
             
             <div className="space-y-4 text-cosmic-text-secondary font-inter leading-relaxed text-lg">
-              <p>
-                We're pioneers at the intersection of artificial intelligence and visual storytelling, 
-                crafting experiences that don't just showcase products—they create emotional connections 
-                that resonate across the digital cosmos.
-              </p>
+              <p>We're pioneers at the intersection of artificial intelligence and visual storytelling, crafting experiences that don't just showcase products, they create emotional connections that resonate across the digital cosmos.</p>
               
               <p>
                 Our team of visionary creators harnesses the power of AI to transform ordinary concepts 
@@ -49,18 +42,12 @@ const AboutSection = () => {
               
               {/* Logo Container */}
               <div className="relative cosmic-border rounded-full p-8 bg-cosmic-surface/50 backdrop-blur-xl">
-                <img 
-                  src="/lovable-uploads/550f69de-4d03-4bad-a302-e32c33142f3d.png" 
-                  alt="Vayout Logo" 
-                  className="h-32 w-auto mx-auto"
-                />
+                <img src="/lovable-uploads/550f69de-4d03-4bad-a302-e32c33142f3d.png" alt="Vayout Logo" className="h-32 w-auto mx-auto" />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
