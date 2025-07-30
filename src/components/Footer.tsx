@@ -76,7 +76,7 @@ const Footer = () => {
                 <Linkedin size={20} />
               </button>
               <button 
-                onClick={() => handleSocialClick("mailto:hello@vayout.in")}
+                onClick={() => handleSocialClick("mailto:vayoutmedia@gmail.com")}
                 className="w-10 h-10 cosmic-border rounded-lg flex items-center justify-center text-cosmic-text-secondary hover:text-cosmic-violet hover:bg-cosmic-violet/10 transition-all duration-300 cosmic-glow"
               >
                 <Mail size={20} />
