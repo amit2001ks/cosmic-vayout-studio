@@ -28,7 +28,7 @@ const HeroSection = () => {
         {/* Logo */}
         <div className="mb-8 float-animation">
           <img 
-            src="/lovable-uploads/7dc9231f-c99c-4119-9ab4-12ceaa0bfe09.png" 
+            src="/lovable-uploads/550f69de-4d03-4bad-a302-e32c33142f3d.png" 
             alt="Vayout Logo" 
             className="h-24 md:h-32 w-auto mx-auto mb-4"
           />

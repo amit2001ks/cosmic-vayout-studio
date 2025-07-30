@@ -50,7 +50,7 @@ const AboutSection = () => {
               {/* Logo Container */}
               <div className="relative cosmic-border rounded-full p-8 bg-cosmic-surface/50 backdrop-blur-xl">
                 <img 
-                  src="/lovable-uploads/7dc9231f-c99c-4119-9ab4-12ceaa0bfe09.png" 
+                  src="/lovable-uploads/550f69de-4d03-4bad-a302-e32c33142f3d.png" 
                   alt="Vayout Logo" 
                   className="h-32 w-auto mx-auto"
                 />
